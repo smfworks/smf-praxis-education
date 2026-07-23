@@ -5,13 +5,13 @@ from datetime import datetime
 
 import pytest
 
-from hybridagent.educator_attestation import (
+from hybridagent_praxis_education.modules.educator_attestation import (
     EducationDraft,
     EducatorAttestation,
     EducatorAttestationError,
     EducatorAttestationLedger,
 )
-from hybridagent.sped_guardrails import (
+from hybridagent_praxis_education.modules.sped_guardrails import (
     IepDraft,
     SpedCase,
     SpedGuardrailError,
@@ -20,7 +20,7 @@ from hybridagent.sped_guardrails import (
     check_iep_draft,
     check_timeline,
 )
-from hybridagent.student_privacy import (
+from hybridagent_praxis_education.modules.student_privacy import (
     DisclosureEvent,
     DisclosureLedger,
     attest_privacy_controls,

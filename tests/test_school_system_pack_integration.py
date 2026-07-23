@@ -1,25 +1,27 @@
 """School System pack — 13-state integration (Session 2)."""
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from hybridagent import config as cfg
 from hybridagent import pack
-from hybridagent.educator_attestation import (
+from hybridagent_praxis_education.modules.educator_attestation import (
     EducationDraft,
     EducatorAttestation,
     EducatorAttestationLedger,
 )
 from hybridagent.jurisdictions import get_education_profile, registered_states
-from hybridagent.pack import bundled_packs_dir
-from hybridagent.school_comms import check_academic_integrity
-from hybridagent.sped_guardrails import check_decision_authority
-from hybridagent.student_privacy import (
+
+from hybridagent_praxis_education.modules.school_comms import check_academic_integrity
+from hybridagent_praxis_education.modules.sped_guardrails import check_decision_authority
+from hybridagent_praxis_education.modules.student_privacy import (
     attest_privacy_controls,
     check_collection,
     check_commercial_use,
 )
-from hybridagent.vendor_hygiene import VendorContract, check_vendor_contract
+from hybridagent_praxis_education.modules.vendor_hygiene import VendorContract, check_vendor_contract
 
 STATES = registered_states()
 NOW = 1_780_000_000.0
@@ -118,7 +120,9 @@ def test_school_system_persona_guardrails(tmp_path, monkeypatch):
 
 def test_school_system_knowledge_covers_13_states(tmp_path, monkeypatch):
     _home(tmp_path, monkeypatch)
-    kb = (bundled_packs_dir() / "school_system" / "knowledge.md").read_text()
+    loaded = pack.load_pack("school_system")
+    assert loaded is not None
+    kb = (Path(loaded.path) / "knowledge.md").read_text(encoding="utf-8")
     for st in ("FL", "GA", "SC", "TN", "VA", "WV", "MD", "PA", "OH", "NJ", "NY", "CT", "MA"):
         assert st in kb
 

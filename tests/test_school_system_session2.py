@@ -3,8 +3,8 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from hybridagent.credentials import CESession, compliance_status, credential_for, record_hours
-from hybridagent.school_comms import (
+from hybridagent_praxis_education.modules.credentials import CESession, compliance_status, credential_for, record_hours
+from hybridagent_praxis_education.modules.school_comms import (
     AUTONOMOUS_LOGISTICS_TEMPLATES,
     ParentMessage,
     ParentReplyDraft,
@@ -12,14 +12,14 @@ from hybridagent.school_comms import (
     scan_for_mandatory_report_signals,
     triage_parent_message,
 )
-from hybridagent.school_records import (
+from hybridagent_praxis_education.modules.school_records import (
     ParentAccessRequest,
     StudentRecordSet,
     assess_student_record_retention,
     fulfill_access,
     open_parent_access_request,
 )
-from hybridagent.vendor_hygiene import VendorContract, check_vendor_contract
+from hybridagent_praxis_education.modules.vendor_hygiene import VendorContract, check_vendor_contract
 
 NOW = datetime(2026, 6, 1).timestamp()
 DAY = 86400.0

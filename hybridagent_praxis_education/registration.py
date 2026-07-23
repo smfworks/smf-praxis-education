@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 from hybridagent.broker import RiskClass
 from hybridagent.evals import EvalCase
 from hybridagent.verticals.registry import (
     VerticalSpec,
     register_vertical_eval_cases,
+    register_vertical_pack_root,
     register_vertical_spec,
 )
 
@@ -17,7 +20,7 @@ _SCHOOL_SYSTEM_SPEC = VerticalSpec(
     compliance_mode="enforced",
     autonomous={RiskClass.READ, RiskClass.DRAFT},
     held={RiskClass.SEND, RiskClass.DESTRUCTIVE},
-    version="0.1.0",
+    version="0.1.1",
 )
 
 _EDUCATION_TUTOR_SPEC = VerticalSpec(
@@ -26,7 +29,7 @@ _EDUCATION_TUTOR_SPEC = VerticalSpec(
     compliance_mode="autonomous",
     autonomous={RiskClass.READ, RiskClass.DRAFT},
     held={RiskClass.DESTRUCTIVE},
-    version="0.1.0",
+    version="0.1.1",
 )
 
 
@@ -142,3 +145,4 @@ def register() -> None:
     register_vertical_spec(_SCHOOL_SYSTEM_SPEC)
     register_vertical_spec(_EDUCATION_TUTOR_SPEC)
     register_vertical_eval_cases(_manual_cases)
+    register_vertical_pack_root(Path(__file__).resolve().parent / "packs")
