@@ -13,7 +13,6 @@ from hybridagent.verticals.registry import (
     register_vertical_spec,
 )
 
-
 _SCHOOL_SYSTEM_SPEC = VerticalSpec(
     name="school_system",
     persona_keyword="school system",

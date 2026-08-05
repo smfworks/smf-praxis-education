@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import pytest
-
 from hybridagent.jurisdictions import (
     EducationProfile,
     education_summary,

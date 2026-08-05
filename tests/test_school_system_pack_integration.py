@@ -4,24 +4,28 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from hybridagent import config as cfg
 from hybridagent import pack
+from hybridagent.jurisdictions import get_education_profile, registered_states
+
 from hybridagent_praxis_education.modules.educator_attestation import (
     EducationDraft,
     EducatorAttestation,
     EducatorAttestationLedger,
 )
-from hybridagent.jurisdictions import get_education_profile, registered_states
-
 from hybridagent_praxis_education.modules.school_comms import check_academic_integrity
-from hybridagent_praxis_education.modules.sped_guardrails import check_decision_authority
+from hybridagent_praxis_education.modules.sped_guardrails import (
+    check_decision_authority,
+)
 from hybridagent_praxis_education.modules.student_privacy import (
     attest_privacy_controls,
     check_collection,
     check_commercial_use,
 )
-from hybridagent_praxis_education.modules.vendor_hygiene import VendorContract, check_vendor_contract
+from hybridagent_praxis_education.modules.vendor_hygiene import (
+    VendorContract,
+    check_vendor_contract,
+)
 
 STATES = registered_states()
 NOW = 1_780_000_000.0
@@ -67,7 +71,7 @@ def test_wv_affective_and_fl_biometric_across_pack():
 
 
 def test_ny_attestation_stricter_than_pa():
-    bare = dict(written_dpa=True, no_commercial_use=True)
+    bare = {"written_dpa": True, "no_commercial_use": True}
     ny = attest_privacy_controls("NY", **bare)
     pa = attest_privacy_controls("PA", **bare)
     assert ny.blocked  # needs encryption, BOR, NIST, DPO
