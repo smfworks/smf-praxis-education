@@ -19,7 +19,7 @@ _SCHOOL_SYSTEM_SPEC = VerticalSpec(
     compliance_mode="enforced",
     autonomous={RiskClass.READ, RiskClass.DRAFT},
     held={RiskClass.SEND, RiskClass.DESTRUCTIVE},
-    version="0.1.2",
+    version="0.2.0",
 )
 
 _EDUCATION_TUTOR_SPEC = VerticalSpec(
@@ -28,7 +28,7 @@ _EDUCATION_TUTOR_SPEC = VerticalSpec(
     compliance_mode="autonomous",
     autonomous={RiskClass.READ, RiskClass.DRAFT},
     held={RiskClass.DESTRUCTIVE},
-    version="0.1.2",
+    version="0.2.0",
 )
 
 
