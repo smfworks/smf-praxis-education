@@ -1,14 +1,14 @@
 """SMF Praxis Education vertical — registration module.
 
-This package is the private paid Education / School System vertical build
-for Praxis. It depends on the open-core ``smf-praxis`` base and registers
-the education vertical's spec and eval cases with the base's
+This package is the SMF Praxis education compliance pack
+for Praxis. It depends on the Praxis ``smf-praxis`` base and registers
+the education pack's spec and eval cases with the base's
 :mod:`hybridagent.verticals.registry` on import.
 
 Installation::
 
-    pip install praxis-agent            # open-core base (public, MIT)
-    pip install praxis-education        # this vertical (private, commercial)
+    pip install praxis-agent            # Praxis base (MIT)
+    pip install praxis-education        # SMF Praxis education compliance pack
 
 Activating the vertical lights up:
 
