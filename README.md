@@ -1,6 +1,6 @@
 # Praxis Education
 
-Private school-system vertical for Praxis. It packages education governance, student-privacy controls, educator attestations, special-education guardrails, credential tracking, and the `school_system` vertical pack.
+SMF Praxis education compliance pack. It packages education governance, student-privacy controls, educator attestations, special-education guardrails, credential tracking, and the `school_system` pack.
 
 ## Installation
 
@@ -16,4 +16,8 @@ The distribution registers itself through the `praxis.verticals` entry-point gro
 
 Student and staff data remain subject to minimum-necessary access. Consequential communications, record changes, and external submissions remain held for authorized human review.
 
-Proprietary software. See `LICENSE`.
+This pack is informational tooling and not legal advice. Users should verify requirements with qualified counsel.
+
+## License
+
+This pack is MIT-licensed. See [LICENSE](LICENSE).
